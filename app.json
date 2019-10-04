@@ -1,0 +1,59 @@
+{
+  "id": "com.henke.groupdevice",
+  "version": "1.0.0",
+  "compatibility": ">2.0.4",
+  "sdk": 2,
+  "name": {
+    "en": "Device Groups"
+  },
+  "description": {
+    "en": "Create a virtual device that consists of a selection of devices to pass command to."
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": ["homey:manager:api"],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Henrik Andersson",
+    "email": "henka_444@hotmail.com"
+  },
+  "drivers": [
+		{
+			"id": "onOffDeviceGroup",
+			"name": {
+				"en": "On/Off Group"
+			},
+			"images": {
+				"large": "drivers/deviceGroup/assets/images/large.png",
+				"small": "drivers/deviceGroup/assets/images/small.png"
+			},
+			"class": "light",
+			"capabilities": [ "onoff" ],
+			"pair": [
+        {
+          "id": "devices"
+        }
+      ]
+		},{
+			"id": "lampDeviceGroup",
+			"name": {
+				"en": "Lamp Group"
+			},
+			"images": {
+				"large": "drivers/deviceGroup/assets/images/large.png",
+				"small": "drivers/deviceGroup/assets/images/small.png"
+			},
+			"class": "light",
+			"capabilities": [ "onoff", "dim" ],
+			"pair": [
+        {
+          "id": "devices"
+        }
+      ]
+		}
+	]
+}

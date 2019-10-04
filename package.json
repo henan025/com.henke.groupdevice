@@ -1,0 +1,15 @@
+{
+  "name": "com.henke.groupdevice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "update-dependencies": "rm -rf node_modules ; rm package-lock.json ; npm install"
+  },
+  "dependencies": {
+    "athom-api": "^2.1.179",
+    "homey-tools": "git+https://github.com/henan025/homey-tools.git "
+  },
+  "author": "Henrik Andersson",
+  "license": "UNLICENCED"
+}

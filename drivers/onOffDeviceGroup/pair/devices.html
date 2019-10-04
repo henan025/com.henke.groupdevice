@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="../../../assets/styles/main.css" />
+<script src='../../../assets/scripts/vue.min.js'></script>
+<script src='../../../assets/scripts/pairing-devices-page.js'></script>
+
+<div id="select_devices">
+  <div id="content" style="top:0;">
+    <div id="settings_device_selector" :key="selectedDevices">
+      <div class="device-item" v-for="device in filteredDevices" @click='toggleSelectedDevice(device.id)' v-bind:class="{ selected: selectedDevices && selectedDevices[device.id] }">
+        <div class="icon" v-if="device.iconObj !== null" v-bind:style="{maskImage: 'url(' + device.iconObj.url + ')'}"></div>
+        <div class="title">{{ device.name }}</div>
+      </div>
+    </div>
+  </div>
+  <div v-else>
+    {{ noDevices }}
+  </div>
+  <div id="footer">
+    <button class="button" v-on:click="done">Done</button>
+  </div>
+</div>

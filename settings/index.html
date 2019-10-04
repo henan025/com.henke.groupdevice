@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../assets/styles/main.css" />
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+    <script src="../assets/scripts/vue.min.js"></script>
+    <script src="../assets/scripts/utils.js"></script>
+  </head>
+  <body>
+    <div id="app-settings">
+      <div id="header">
+        <div>{{ texts.title }}</div>
+        <div id="settings_top_selector">
+          <div @click='selectedGroup = group' class="group-item" v-bind:class="{ selected: selectedGroup && selectedGroup.id == group.id }" v-for="group in groups">
+            <div class="icon" v-if="group.iconObj !== null" v-bind:style="{maskImage: 'url(' + group.iconObj.url + ')'}"></div>
+            <div class="title">{{ group.name }}</div>
+          </div>
+        </div>
+      </div>
+      <div id="content" v-if="selectedGroup">
+        <div>{{ texts.title2 }}</div>
+        <div id="settings_device_selector">
+          <div @click='toggleSelectedDevice(device.id)' class="device-item" v-for="device in devices" v-bind:class="{ selected: selectedGroup && selectedGroup.settings.devices.indexOf(device.id) >= 0 }">
+            <div class="icon" v-if="device.iconObj !== null" v-bind:style="{maskImage: 'url(' + device.iconObj.url + ')'}"></div>
+            <div class="title">{{ device.name }}</div>
+          </div>
+        </div>
+      </div>
+      <div id="footer"></div>
+      <div id="loader" v-bind:class="{ displaynone: loaded }">
+          <i class="fas fa-spinner fa-spin"></i>
+      </div>
+    </div>
+  </body>
+  <script src="./app-settings.js"></script>
+</html>

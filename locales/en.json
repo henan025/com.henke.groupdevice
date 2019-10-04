@@ -1,0 +1,8 @@
+{
+  "settings": {
+    "title": "Edit connected devices in a Device Group",
+    "grouplabel": "Edit connected devices in a Device Group",
+    "devicelabel": "Edit connected devices in a Device Group",
+    "loadinggroups": "Loading devices..."
+  }
+}
