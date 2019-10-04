@@ -25,6 +25,10 @@ module.exports = class Device extends ToolsDevice {
         }
       }
     }
+    if (this._checkGroupDevicesStateTimeout) { 
+      clearTimeout(this._checkGroupDevicesStateTimeout)
+      this._checkGroupDevicesStateTimeout = null
+    }
     this._checkGroupDevicesStateTimeout = setTimeout(this.checkGroupDevicesState.bind(this), this._deviceStateUpdateTimoutTime * 1000)
   }
 

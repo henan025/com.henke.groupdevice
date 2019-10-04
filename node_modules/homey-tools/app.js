@@ -11,6 +11,7 @@ class HomeyToolsApp extends Homey.App {
 
   resetApi () {
     this.api = null
+    this.devices = {}
     return this.api
   }
 
@@ -41,7 +42,8 @@ class HomeyToolsApp extends Homey.App {
 
   async getDevice (id) {
     if (!this.devices[id]) {
-      this.devices = await this.getDevices()
+      const _devices = await this.getDevices()
+      this.devices[id] = _devices[id]
     }
     return this.devices[id]
   }
